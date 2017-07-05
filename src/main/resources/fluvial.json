@@ -1,0 +1,26 @@
+{
+  "basePackage": "model.job",
+  "jobs": [
+    {
+      "jobType": "TestJobA",
+      "subJobs": [
+        "SubJobA",
+        "SubJobB"
+      ]
+    },
+    {
+      "jobType": "TestJobB",
+      "subJobs": [
+        "SubJobA",
+        "SubJobB"
+      ]
+    },
+    {
+      "jobType": "DeliveryJob",
+      "subJobs": [
+        "MoveToTargetJob",
+        "AuthoriseJob"
+      ]
+    }
+  ]
+}
