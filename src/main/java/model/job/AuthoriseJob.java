@@ -6,6 +6,8 @@ import fluvial.model.job.JobStorage;
 import fluvial.model.job.goal.FlagGoal;
 import fluvial.model.job.goal.Goal;
 import fluvial.model.storage.StoreSetter;
+import model.performer.AGV;
+import model.performer.command.SpeakCommand;
 
 /**
  * Created by superttmm on 03/06/2017.
@@ -20,6 +22,12 @@ public class AuthoriseJob extends Job {
         job.readyToGo = this.readyToGo;
         return jobEntity;
     };
+
+    @Override
+    public void execute(){
+        SpeakCommand speakCommand = new SpeakCommand((AGV)getPerformer().getPerformer());
+        speakCommand.execute("请认证身份！");
+    }
 
     @Override
     public void createGoals(){

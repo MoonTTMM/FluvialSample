@@ -1,5 +1,6 @@
 package controller;
 
+import fluvial.model.performer.PerformerFactory;
 import model.dal.RobotRepository;
 import model.performer.RobotEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,12 @@ public class RobotController {
     @Autowired
     RobotRepository robotRepository;
 
+    @Autowired
+    PerformerFactory performerFactory;
+
     @RequestMapping(value = "create", method = RequestMethod.POST)
     public RobotEntity create(@RequestBody RobotEntity robotEntity){
         System.out.println(robotEntity.getName());
-        return robotRepository.save(robotEntity);
+        return (RobotEntity) performerFactory.setup(robotEntity);
     }
 }

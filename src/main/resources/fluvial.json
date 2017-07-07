@@ -1,5 +1,5 @@
 {
-  "basePackage": "model.job",
+  "jobPackage": "model.job",
   "jobs": [
     {
       "jobType": "TestJobA",
@@ -20,6 +20,23 @@
       "subJobs": [
         "MoveToTargetJob",
         "AuthoriseJob"
+      ]
+    }
+  ],
+  "performerPackage": "model.performer",
+  "performers":[
+    {
+      "performerType": "AGV",
+      "modules": [
+        "ros",
+        "app",
+        "driver"
+      ]
+    },
+    {
+      "performerType": "TestPerformer",
+      "modules": [
+        "testModule"
       ]
     }
   ]
